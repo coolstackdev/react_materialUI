@@ -1,0 +1,34 @@
+
+body {
+    background-color: #28659b;
+    color: white;
+}
+.logo {
+    margin-top: 100px;
+    height: 100px;
+    width: 200px;
+}
+.login_input {
+    color: black;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .MuiInputBase-root {
+        background-color: white;
+        overflow: hidden;
+    }
+}
+.link_forgot {
+    text-align: left !important;
+    
+    a{
+        color: white !important;
+    } 
+}
+.link_signup {
+    text-align: right !important;
+
+    a{
+        color: white !important;
+    }
+}

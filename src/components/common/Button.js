@@ -8,12 +8,8 @@ import classNames from 'classnames'
 
 const styles = {
     button: {
-        paddingLeft: 20,
-        paddingRight: 20,
         paddingTop: 15,
         paddingBottom: 15,
-        marginTop: 20,
-        marginBottom: 20,
         width: '100%',
         fontSize: 20,
         fontWeight: 'bold',
@@ -24,25 +20,25 @@ const styles = {
         color: '#fff'
     },
     btnBlue: {
-        backgroundColor: palette.blue.main,
+        background: `linear-gradient(to right bottom, ${palette.blue.main}, ${palette.blue.light})`,
         '&:hover': {
             background: palette.blue.light,
         }
     },
     btnGreen: {
-        backgroundColor: palette.green.main,
+        background: `linear-gradient(to right bottom, ${palette.green.main}, ${palette.green.light})`,
         '&:hover': {
             background: palette.green.light,
         }
     },
     btnOrange: {
-        backgroundColor: palette.orange.main,
+        background: `linear-gradient(to right bottom, ${palette.orange.main}, ${palette.orange.light})`,
         '&:hover': {
             background: palette.orange.light,
         }
     },
     btnRed: {
-        backgroundColor: palette.red.main,
+        background: `linear-gradient(to right bottom, ${palette.red.main}, ${palette.red.light})`,
         '&:hover': {
             background: palette.red.light,
         }
@@ -50,16 +46,16 @@ const styles = {
 }
 
 export const ButtonUnstyled = ({
-    classes, onClick, children, style, buttonType,
+    classes, onClick, children, color, type
 }) => (
         <Button
+            type={type}
             className={classNames(
-                style,
                 classes.button,
-                { [classes.btnBlue]: buttonType === 'blue' },
-                { [classes.btnGreen]: buttonType === 'green' },
-                { [classes.btnOrange]: buttonType === 'orange' },
-                { [classes.btnRed]: buttonType === 'red' },
+                { [classes.btnBlue]: color === 'blue' },
+                { [classes.btnGreen]: color === 'green' },
+                { [classes.btnOrange]: color === 'orange' },
+                { [classes.btnRed]: color === 'red' },
             )}
             onClick={onClick}
         >
