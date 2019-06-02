@@ -5,8 +5,8 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
-import Button from '../common/Button';
-import Image from './../../assets/images/white_logo.png';
+import Button from '../../components/common/Button';
+import Image from '../../assets/images/white_logo.png';
 import './auth.scss';
 
 class SignUp extends React.Component {
