@@ -11,7 +11,7 @@ const styles = {
         paddingTop: 15,
         paddingBottom: 15,
         width: '100%',
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
         boxShadow: 'none',
         borderRadius: 7,

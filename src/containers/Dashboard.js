@@ -6,14 +6,13 @@ import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
+// import Paper from '@material-ui/core/Paper';
+// import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -21,9 +20,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import TextField from '@material-ui/core/TextField';
 
 import { mainListItems, secondaryListItems } from '../components/listItems';
-import Create from '../components/Create';
-
-import Image from '../assets/images/white_logo.png';
+import EventItem from '../components/EventItem';
 
 const drawerWidth = 240;
 
@@ -63,14 +60,14 @@ const useStyles = makeStyles(theme => ({
         display: 'none',
     },
     logo: {
-        height: '50px',
-        width: '100px'
+        height: 50,
+        width: 100
     },
     search: {
-        marginLeft: '50px',
-        height: '40px',
-        width: '300px',
-        borderRadius: '5px',
+        marginLeft: 50,
+        height: 40,
+        width: 300,
+        borderRadius: 5,
         backgroundColor: 'white',
     },
     gap: {
@@ -119,6 +116,18 @@ const useStyles = makeStyles(theme => ({
 
 export default function Dashboard() {
     const classes = useStyles();
+
+    const users = [
+        'userId1', 'userId2'
+    ];
+    const title = "Uber tomorrow";
+    const content = "Knicks get Zion";
+    const buttons = [
+        { 'value': 'Accept', 'color': 'green' },
+        { 'value': 'Decline', 'color': 'red' },
+        { 'value': 'Counter', 'color': 'orange' },
+    ];
+
     const [open, setOpen] = React.useState(true);
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -129,7 +138,7 @@ export default function Dashboard() {
     const handleChange = (event) => {
         console.log('search: ', event.target.value);
     };
-    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+    // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     return (
         <div className={classes.root}>
@@ -147,7 +156,7 @@ export default function Dashboard() {
                     </IconButton>
                     <CardMedia
                         className={classes.logo}
-                        image={Image}
+                        image={process.env.PUBLIC_URL + '/images/white_logo.png'}
                         title="Settlyt"
                     />
                     <TextField
@@ -189,9 +198,11 @@ export default function Dashboard() {
                     <Grid container spacing={3}>
 
                         <Grid item xs={12} md={8} lg={9}>
-                            <Paper className={fixedHeightPaper}>
-                                <Create />
-                            </Paper>
+                            <EventItem
+                                users={users}
+                                title={title}
+                                content={content}
+                                buttons={buttons} />
                         </Grid>
                     </Grid>
                 </Container>

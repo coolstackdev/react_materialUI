@@ -6,7 +6,6 @@ import Container from '@material-ui/core/Container';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 import Button from '../../components/common/Button';
-import Image from '../../assets/images/white_logo.png';
 import './auth.scss';
 
 class SignIn extends React.Component {
@@ -48,7 +47,7 @@ class SignIn extends React.Component {
                         <Grid item xs={12}>
                             <CardMedia
                                 className="logo"
-                                image={Image}
+                                image={process.env.PUBLIC_URL + '/images/white_logo.png'}
                                 title="Settlyt"
                             />
                         </Grid>

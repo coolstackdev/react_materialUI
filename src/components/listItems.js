@@ -2,22 +2,24 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import PeopleIcon from '@material-ui/icons/People';
-import LayersIcon from '@material-ui/icons/Layers';
-import AssignmentIcon from '@material-ui/icons/Assignment';
+import PrivacyIcon from '@material-ui/icons/VerifiedUser';
+import AcountIcon from '@material-ui/icons/AccountCircle';
+import PasswordIcon from '@material-ui/icons/VpnKey';
+import LogoutIcon from '@material-ui/icons/AllOut';
+import ContactIcon from '@material-ui/icons/ContactMail';
+import TermsIcon from '@material-ui/icons/ListAlt';
 
 export const mainListItems = (
     <div>
         <ListItem button>
             <ListItemIcon>
-                <PeopleIcon />
+                <AcountIcon />
             </ListItemIcon>
             <ListItemText primary="Account Information" />
         </ListItem>
         <ListItem button>
             <ListItemIcon>
-                <LayersIcon />
+                <PasswordIcon />
             </ListItemIcon>
             <ListItemText primary="Change Password" />
         </ListItem>
@@ -28,25 +30,25 @@ export const secondaryListItems = (
     <div>
         <ListItem button>
             <ListItemIcon>
-                <AssignmentIcon />
+                <PrivacyIcon />
             </ListItemIcon>
             <ListItemText primary="Privacy Policy" />
         </ListItem>
         <ListItem button>
             <ListItemIcon>
-                <AssignmentIcon />
+                <TermsIcon />
             </ListItemIcon>
             <ListItemText primary="Terms and Conditions" />
         </ListItem>
         <ListItem button>
             <ListItemIcon>
-                <AssignmentIcon />
+                <ContactIcon />
             </ListItemIcon>
             <ListItemText primary="Contact Us" />
         </ListItem>
         <ListItem button>
             <ListItemIcon>
-                <ShoppingCartIcon />
+                <LogoutIcon />
             </ListItemIcon>
             <ListItemText primary="Logout" />
         </ListItem>
