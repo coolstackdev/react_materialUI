@@ -8,8 +8,8 @@ import classNames from 'classnames'
 
 const styles = {
     button: {
-        paddingTop: 15,
-        paddingBottom: 15,
+        paddingTop: 13,
+        paddingBottom: 13,
         width: '100%',
         fontSize: 18,
         fontWeight: 'bold',
@@ -21,27 +21,27 @@ const styles = {
     },
     btnBlue: {
         background: `linear-gradient(to right bottom, ${palette.blue.main}, ${palette.blue.light})`,
-        '&:hover': {
-            background: palette.blue.light,
-        }
+        // '&:hover': {
+        //     background: palette.blue.light,
+        // }
     },
     btnGreen: {
         background: `linear-gradient(to right bottom, ${palette.green.main}, ${palette.green.light})`,
-        '&:hover': {
-            background: palette.green.light,
-        }
+        // '&:hover': {
+        //     background: palette.green.light,
+        // }
     },
     btnOrange: {
         background: `linear-gradient(to right bottom, ${palette.orange.main}, ${palette.orange.light})`,
-        '&:hover': {
-            background: palette.orange.light,
-        }
+        // '&:hover': {
+        //     background: palette.orange.light,
+        // }
     },
     btnRed: {
         background: `linear-gradient(to right bottom, ${palette.red.main}, ${palette.red.light})`,
-        '&:hover': {
-            background: palette.red.light,
-        }
+        // '&:hover': {
+        //     background: palette.red.light,
+        // }
     },
 }
 

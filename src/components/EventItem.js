@@ -15,6 +15,8 @@ const useStyles = makeStyles({
     card: {
         borderRadius: 10,
         padding: 10,
+        marginTop: 20,
+        marginBottom: 20
     },
     avatar: {
         margin: 10,
@@ -101,27 +103,56 @@ export default function Item({ users, title, content, buttons }) {
                 </Grid>
             </Grid>
             <CardActions>
-                <Button
-                    type="submit"
-                    fullWidth
-                    color={buttons[0].color}
+                <Grid
+                    container
+                    direction="row"
+                    align="center"
+                    justify="center"
+                    spacing={1}
                 >
-                    {buttons[0].value}
-                </Button>
-                <Button
-                    type="submit"
-                    fullWidth
-                    color={buttons[1].color}
-                >
-                    {buttons[1].value}
-                </Button>
-                <Button
-                    type="submit"
-                    fullWidth
-                    color={buttons[2].color}
-                >
-                    {buttons[2].value}
-                </Button>
+                    {buttons.map((button, index) => {
+                        return <Grid
+                            key={index}
+                            item xs={12}
+                            md={buttons.length === 3 ? 12 : 6}
+                            lg={buttons.length === 3 ? 4 : 6}
+                        >
+                            <Button
+                                fullWidth
+                                color={button.color}
+                            >
+                                {button.value}
+                            </Button>
+                        </Grid>
+                    })}
+                    {/* <Grid item xs={12} md={6} lg={4}>
+                        <Button
+                            type="submit"
+                            fullWidth
+                            color={buttons[0].color}
+                        >
+                            {buttons[0].value}
+                        </Button>
+                    </Grid>
+                    <Grid item xs={12} md={6} lg={4}>
+                        <Button
+                            type="submit"
+                            fullWidth
+                            color={buttons[1].color}
+                        >
+                            {buttons[1].value}
+                        </Button>
+                    </Grid>
+                    <Grid item xs={12} md={6} lg={4}>
+                        <Button
+                            type="submit"
+                            fullWidth
+                            color={buttons[2].color}
+                        >
+                            {buttons[2].value}
+                        </Button>
+                    </Grid> */}
+                </Grid>
             </CardActions>
         </Card>
     );

@@ -6,11 +6,12 @@ import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
+import Avatar from '@material-ui/core/Avatar';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 // import Paper from '@material-ui/core/Paper';
 // import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -18,6 +19,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import CardMedia from '@material-ui/core/CardMedia';
 import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 
 import { mainListItems, secondaryListItems } from '../components/listItems';
 import EventItem from '../components/EventItem';
@@ -64,9 +66,9 @@ const useStyles = makeStyles(theme => ({
         width: 100
     },
     search: {
-        marginLeft: 50,
+        marginLeft: 70,
         height: 40,
-        width: 300,
+        width: 400,
         borderRadius: 5,
         backgroundColor: 'white',
     },
@@ -93,6 +95,11 @@ const useStyles = makeStyles(theme => ({
             width: theme.spacing(9),
         },
     },
+    avatar: {
+        margin: 10,
+        width: 100,
+        height: 100,
+    },
     appBarSpacer: theme.mixins.toolbar,
     content: {
         flexGrow: 1,
@@ -117,18 +124,53 @@ const useStyles = makeStyles(theme => ({
 export default function Dashboard() {
     const classes = useStyles();
 
-    const users = [
-        'userId1', 'userId2'
-    ];
-    const title = "Uber tomorrow";
-    const content = "Knicks get Zion";
-    const buttons = [
-        { 'value': 'Accept', 'color': 'green' },
-        { 'value': 'Decline', 'color': 'red' },
-        { 'value': 'Counter', 'color': 'orange' },
+    // current active User
+    const currentUser = {
+        name: '@grivas88',
+        url: '/images/user1.jpg'
+    };
+
+    // eventItem props
+    const eventItems = [
+        {
+            users: [
+                'userId1', 'userId2'
+            ],
+            title: "Uber tomorrow",
+            content: "Knicks get Zion",
+            buttons: [
+                { value: 'Accept', color: 'green' },
+                { value: 'Decline', color: 'red' },
+                { value: 'Counter', color: 'orange' },
+            ]
+        },
+        {
+            users: [
+                'userId1', 'userId2'
+            ],
+            title: "$5",
+            content: "most tacos in 10 mins",
+            buttons: [
+                { value: 'I Won', color: 'green' },
+                { value: 'I Lost', color: 'red' },
+            ]
+        },
+        {
+            users: [
+                'userId1', 'userId2'
+            ],
+            title: "Loser brings coffee tomorrow",
+            content: "Jan says 'low hanging fruit' on this call",
+            buttons: [
+                { value: 'Invite Pending', color: 'green' },
+            ]
+        }
     ];
 
+    // state
     const [open, setOpen] = React.useState(true);
+
+    // event handler
     const handleDrawerOpen = () => {
         setOpen(true);
     };
@@ -138,6 +180,7 @@ export default function Dashboard() {
     const handleChange = (event) => {
         console.log('search: ', event.target.value);
     };
+
     // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     return (
@@ -187,22 +230,28 @@ export default function Dashboard() {
                         <ChevronLeftIcon />
                     </IconButton>
                 </div>
-                <Divider />
+                <Grid hidden={!open} align="center">
+                    <Avatar alt={currentUser.name} src={process.env.PUBLIC_URL + currentUser.url} className={classes.avatar} />
+                    <Typography variant="h5">{currentUser.name}</Typography>
+                </Grid>
                 <List>{mainListItems}</List>
-                <Divider />
+                <Box height="100%"></Box>
                 <List>{secondaryListItems}</List>
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
                     <Grid container spacing={3}>
+                        <Grid item xs={12} md={10}>
+                            {eventItems.map((eventItem, index) => {
+                                return <EventItem
+                                    key={index}
+                                    users={eventItem.users}
+                                    title={eventItem.title}
+                                    content={eventItem.content}
+                                    buttons={eventItem.buttons} />
+                            })}
 
-                        <Grid item xs={12} md={8} lg={9}>
-                            <EventItem
-                                users={users}
-                                title={title}
-                                content={content}
-                                buttons={buttons} />
                         </Grid>
                     </Grid>
                 </Container>
