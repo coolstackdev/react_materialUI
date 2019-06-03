@@ -8,6 +8,9 @@ import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import Notification from '../components/Notification';
 import EventItem from '../components/EventItem';
+import CreateEvent from '../components/CreateEvent';
+import CounterEvent from '../components/CounterEvent';
+import Button from '../components/common/Button';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -52,21 +55,18 @@ export default function Dashboard() {
                 { value: 'I Won', color: 'green' },
                 { value: 'I Lost', color: 'red' },
             ]
-        },
-        {
-            users: [
-                'userId1', 'userId2'
-            ],
-            title: "Loser brings coffee tomorrow",
-            content: "Jan says 'low hanging fruit' on this call",
-            buttons: [
-                { value: 'Invite Pending', color: 'green' },
-            ]
         }
     ];
 
+    const counterEvent = {
+        username: '@kdaddy',
+        titleMoney: '',
+        titleSomething: 'Uber Tomorrow',
+        content: 'Knicks Get Zion'
+    }
+
     // state
-    const [openSidebar, setOpenSidebar] = React.useState(false);
+    const [openSidebar, setOpenSidebar] = React.useState(true);
     const [openNotification, setOpenNotification] = React.useState(false);
 
     // event handler
@@ -104,6 +104,13 @@ export default function Dashboard() {
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
                     <Grid container spacing={3}>
+                        <Grid item xs={12} md={10}>
+                            <Button color="orange">
+                                Create New
+                            </Button>
+                            <CreateEvent />
+                            <CounterEvent event={counterEvent} />
+                        </Grid>
                         <Grid item xs={12} md={10}>
                             {eventItems.map((eventItem, index) => {
                                 return <EventItem

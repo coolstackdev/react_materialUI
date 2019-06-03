@@ -49,7 +49,7 @@ const getUsers = (users) => {
     ];
 };
 
-export default function Item({ users, title, content, buttons }) {
+export default function EventItem({ users, title, content, buttons }) {
     const classes = useStyles();
     const userInfo = getUsers(users);
 

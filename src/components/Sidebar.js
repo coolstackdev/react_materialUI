@@ -19,7 +19,7 @@ import LogoutIcon from '@material-ui/icons/AllOut';
 import ContactIcon from '@material-ui/icons/ContactMail';
 import TermsIcon from '@material-ui/icons/ListAlt';
 
-const drawerWidth = 240;
+const drawerWidth = 250;
 
 const useStyles = makeStyles(theme => ({
     toolbarIcon: {
@@ -70,6 +70,10 @@ export default function Sidebar({ openSidebar }) {
         name: '@grivas88',
         avatar: '/images/user1.jpg'
     };
+
+    function ListItemLink(props) {
+        return <ListItem button component="a" {...props} />;
+    }
 
     return (
         <Drawer
@@ -122,12 +126,12 @@ export default function Sidebar({ openSidebar }) {
                     </ListItemIcon>
                     <ListItemText primary="Contact Us" />
                 </ListItem>
-                <ListItem button>
+                <ListItemLink href="/signin">
                     <ListItemIcon>
                         <LogoutIcon />
                     </ListItemIcon>
                     <ListItemText primary="Logout" />
-                </ListItem>
+                </ListItemLink>
             </List>
         </Drawer>
     );
