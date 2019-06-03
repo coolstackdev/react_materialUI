@@ -1,5 +1,4 @@
 import React from 'react';
-// import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -125,33 +124,6 @@ export default function Item({ users, title, content, buttons }) {
                             </Button>
                         </Grid>
                     })}
-                    {/* <Grid item xs={12} md={6} lg={4}>
-                        <Button
-                            type="submit"
-                            fullWidth
-                            color={buttons[0].color}
-                        >
-                            {buttons[0].value}
-                        </Button>
-                    </Grid>
-                    <Grid item xs={12} md={6} lg={4}>
-                        <Button
-                            type="submit"
-                            fullWidth
-                            color={buttons[1].color}
-                        >
-                            {buttons[1].value}
-                        </Button>
-                    </Grid>
-                    <Grid item xs={12} md={6} lg={4}>
-                        <Button
-                            type="submit"
-                            fullWidth
-                            color={buttons[2].color}
-                        >
-                            {buttons[2].value}
-                        </Button>
-                    </Grid> */}
                 </Grid>
             </CardActions>
         </Card>
