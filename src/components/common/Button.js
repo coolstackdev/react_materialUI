@@ -46,10 +46,11 @@ const styles = {
 }
 
 export const ButtonUnstyled = ({
-    classes, onClick, children, color, type
+    classes, onClick, children, color, type, style
 }) => (
         <Button
             type={type}
+            style={style}
             className={classNames(
                 classes.button,
                 { [classes.btnBlue]: color === 'blue' },
