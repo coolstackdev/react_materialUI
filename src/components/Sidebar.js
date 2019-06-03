@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -60,6 +61,10 @@ const useStyles = makeStyles(theme => ({
         overflow: 'auto',
         flexDirection: 'column',
     },
+    link: {
+        color: 'inherit',
+        textDecoration: 'none'
+    }
 }));
 
 export default function Sidebar({ openSidebar }) {
@@ -70,10 +75,6 @@ export default function Sidebar({ openSidebar }) {
         name: '@grivas88',
         avatar: '/images/user1.jpg'
     };
-
-    function ListItemLink(props) {
-        return <ListItem button component="a" {...props} />;
-    }
 
     return (
         <Drawer
@@ -93,46 +94,58 @@ export default function Sidebar({ openSidebar }) {
                 <Typography variant="h5">{currentUser.name}</Typography>
             </Grid>
             <List>
-                <ListItem button>
-                    <ListItemIcon>
-                        <AcountIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Account Information" />
-                </ListItem>
-                <ListItem button>
-                    <ListItemIcon>
-                        <PasswordIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Change Password" />
-                </ListItem>
+                <Link to="/myprofile" className={classes.link}>
+                    <ListItem button>
+                        <ListItemIcon>
+                            <AcountIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Account Information" />
+                    </ListItem>
+                </Link>
+                <Link to="/changePassword" className={classes.link}>
+                    <ListItem button>
+                        <ListItemIcon>
+                            <PasswordIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Change Password" />
+                    </ListItem>
+                </Link>
             </List>
             <Box height="100%"></Box>
             <List>
-                <ListItem button>
-                    <ListItemIcon>
-                        <PrivacyIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Privacy Policy" />
-                </ListItem>
-                <ListItem button>
-                    <ListItemIcon>
-                        <TermsIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Terms and Conditions" />
-                </ListItem>
-                <ListItem button>
-                    <ListItemIcon>
-                        <ContactIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Contact Us" />
-                </ListItem>
-                <ListItemLink href="/signin">
-                    <ListItemIcon>
-                        <LogoutIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Logout" />
-                </ListItemLink>
+                <Link to="/policy" className={classes.link}>
+                    <ListItem button>
+                        <ListItemIcon>
+                            <PrivacyIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Privacy Policy" />
+                    </ListItem>
+                </Link>
+                <Link to="/terms" className={classes.link}>
+                    <ListItem button>
+                        <ListItemIcon>
+                            <TermsIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Terms and Conditions" />
+                    </ListItem>
+                </Link>
+                <Link to="/contact" className={classes.link}>
+                    <ListItem button>
+                        <ListItemIcon>
+                            <ContactIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Contact Us" />
+                    </ListItem>
+                </Link>
+                <Link to="/signin" className={classes.link}>
+                    <ListItem button>
+                        <ListItemIcon>
+                            <LogoutIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Logout" />
+                    </ListItem>
+                </Link>
             </List>
-        </Drawer>
+        </Drawer >
     );
 }

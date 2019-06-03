@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Signin from './auth/Signin';
 import Signup from './auth/Signup';
-import Dashboard from './Dashboard';
+import Home from './Home';
+import ChangePassword from './auth/ChangePassword';
 
 class App extends Component {
 
   render() {
     return (
       <div>
-        <BrowserRouter>
+        <Router>
           <Switch>
-            <Route path="/" component={Dashboard} exact />
+            <Route path="/" component={Home} exact />
             <Route path="/signin" component={Signin} />
             <Route path="/signup" component={Signup} />
+            <Route path="/changePassword" component={ChangePassword} />
           </Switch>
-        </BrowserRouter>
+        </Router>
       </div>
     )
   }

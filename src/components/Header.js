@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -80,11 +81,13 @@ export default function Header({ openSidebar, handleSidebarToggle, handleNotific
                 >
                     <ChevronLeftIcon />
                 </IconButton>
-                <CardMedia
-                    className={classes.logo}
-                    image={process.env.PUBLIC_URL + '/images/white_logo.png'}
-                    title="Settlyt"
-                />
+                <Link to="/">
+                    <CardMedia
+                        className={classes.logo}
+                        image={process.env.PUBLIC_URL + '/images/white_logo.png'}
+                        title="Settlyt"
+                    />
+                </Link>
                 <Box width="5%"></Box>
                 <TextField
                     onChange={handleSearchChange}
