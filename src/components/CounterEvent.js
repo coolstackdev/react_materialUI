@@ -49,7 +49,7 @@ export default function CounterEvent({ event }) {
                                 <TextField
                                     fullWidth
                                     placeholder="Search"
-                                    value={event.username}
+                                    defaultValue={event.username}
                                     margin="normal"
                                 />
                             </Grid>
@@ -69,7 +69,7 @@ export default function CounterEvent({ event }) {
                                 <TextField
                                     fullWidth
                                     placeholder="Money"
-                                    value={event.titleMoney}
+                                    defaultValue={event.titleMoney}
                                     margin="normal"
                                 />
                             </Grid>
@@ -82,7 +82,7 @@ export default function CounterEvent({ event }) {
                                 <TextField
                                     fullWidth
                                     placeholder="Something Else"
-                                    value={event.titleSomething}
+                                    defaultValue={event.titleSomething}
                                     margin="normal"
                                 />
                             </Grid>
@@ -103,7 +103,7 @@ export default function CounterEvent({ event }) {
                                 <TextField
                                     fullWidth
                                     placeholder="Enter Description"
-                                    value={event.content}
+                                    defaultValue={event.content}
                                     margin="normal"
                                 />
                             </Grid>

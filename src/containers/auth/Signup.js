@@ -113,7 +113,7 @@ const SignUp = ({ history }) => {
                         </Button>
                     </Grid> 
                     */}
-                    <button type="button" class="loginBtn loginBtn--facebook">
+                    <button type="button" className="loginBtn loginBtn--facebook">
                         Signup with Facebook
                     </button>
                     <Grid item xs={12}>

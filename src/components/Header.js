@@ -12,6 +12,8 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import CardMedia from '@material-ui/core/CardMedia';
 import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import SearchIcon from '@material-ui/icons/Search';
 
 const drawerWidth = 240;
 
@@ -44,11 +46,24 @@ const useStyles = makeStyles(theme => ({
         height: 50,
         width: 100
     },
+    searchInputColor: {
+        color: 'white',
+        borderColor: 'white !important',
+    },
+    searchInputBorder: {
+        borderBottom: '2px solid white !important',
+        borderBottomColor: 'white !important',
+        '&:hover': {
+            borderColor: 'white !important',
+            borderWidth: 1
+        },
+    },
     search: {
-        height: 40,
+        height: 25,
         width: 400,
-        borderRadius: 5,
-        backgroundColor: 'white',
+    },
+    iconSearch: {
+        color: 'white',
     },
     gap: {
         flexGrow: 1,
@@ -92,10 +107,20 @@ export default function Header({ openSidebar, handleSidebarToggle, handleNotific
                 <TextField
                     onChange={handleSearchChange}
                     className={classes.search}
-                    variant="outlined"
                     fullWidth
                     name="search"
                     placeholder="Search"
+                    InputProps={{
+                        classes: {
+                            input: classes.searchInputColor,
+                            underline: classes.searchInputBorder,
+                        },
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <SearchIcon className={classes.iconSearch} />
+                            </InputAdornment>
+                        ),
+                    }}
                 />
                 <Box className={classes.gap}></Box>
                 <IconButton
