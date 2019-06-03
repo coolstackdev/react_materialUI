@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 
 import Button from './Button';
 import './piechart.scss';
@@ -31,9 +32,19 @@ const useStyles = makeStyles(theme => ({
     detail: {
         margin: '20px 0'
     },
+    smallAcceptance: {
+        marginLeft: 20,
+    },
+    acceptance: {
+        marginLeft: 5,
+    },
     detailItem: {
         marginTop: 10,
         marginBottom: 25
+    },
+    detailItemSmall: {
+        marginTop: 20,
+        marginBottom: 19,
     }
 }));
 
@@ -63,36 +74,70 @@ const ProfileItem = ({ userInfo }) => {
                     < Grid item xs={12} md={4}></Grid>
                 }
                 <Grid item xs={12} align="center" className={classes.detail}>
-                    <Grid container direction="row" align="center" justify="center" spacing={5}>
-                        <Grid item>
-                            <Typography variant="h1" className={classes.detailItem}>{userInfo.totalWins}</Typography>
-                            <Typography variant="h6">Total Wins</Typography>
-                        </Grid>
-                        <Grid item>
-                            <div className={`c100 p${userInfo.winPercent}`}>
-                                <span>{userInfo.winPercent}%</span>
-                                <div className="slice">
-                                    <div className="bar"></div>
-                                    <div className="fill"></div>
+                    <Box display={{ xs: 'none', md: 'block' }}>
+                        <Grid container direction="row" align="center" justify="center" spacing={5}>
+                            <Grid item align="center">
+                                <Typography variant="h1" className={classes.detailItem}>{userInfo.totalWins}</Typography>
+                                <Typography variant="h6">Total Wins</Typography>
+                            </Grid>
+                            <Grid item align="center">
+                                <div className={`c100 p${userInfo.winPercent}`}>
+                                    <span>{userInfo.winPercent}%</span>
+                                    <div className="slice">
+                                        <div className="bar"></div>
+                                        <div className="fill"></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <Typography variant="h6">Win %</Typography>
-                        </Grid>
-                        <Grid item>
-                            <div className={`c100 p${userInfo.acceptancePercent} orange`}>
-                                <span>{userInfo.acceptancePercent}%</span>
-                                <div className="slice">
-                                    <div className="bar"></div>
-                                    <div className="fill"></div>
+                                <Typography variant="h6">Win %</Typography>
+                            </Grid>
+                            <Grid item align="center">
+                                <div className={`c100 p${userInfo.acceptancePercent} orange ${classes.acceptance}`}>
+                                    <span>{userInfo.acceptancePercent}%</span>
+                                    <div className="slice">
+                                        <div className="bar"></div>
+                                        <div className="fill"></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <Typography variant="h6">Acceptance %</Typography>
+                                <Typography variant="h6">Acceptance %</Typography>
+                            </Grid>
+                            <Grid item align="center">
+                                <Typography variant="h1" className={classes.detailItem}>{userInfo.longestStreak}</Typography>
+                                <Typography variant="h6">Longest Streak</Typography>
+                            </Grid>
                         </Grid>
-                        <Grid item>
-                            <Typography variant="h1" className={classes.detailItem}>{userInfo.longestStreak}</Typography>
-                            <Typography variant="h6">Longest Streak</Typography>
+                    </Box>
+                    <Box display={{ xs: 'block', md: 'none' }}>
+                        <Grid container direction="row" align="center" justify="center" spacing={3}>
+                            <Grid item align="center">
+                                <Typography variant="h3" className={classes.detailItemSmall}>{userInfo.totalWins}</Typography>
+                                <Typography variant="body1">Total Wins</Typography>
+                            </Grid>
+                            <Grid item align="center">
+                                <div className={`c100 p${userInfo.winPercent} small`}>
+                                    <span>{userInfo.winPercent}%</span>
+                                    <div className="slice">
+                                        <div className="bar"></div>
+                                        <div className="fill"></div>
+                                    </div>
+                                </div>
+                                <Typography variant="body1">Win %</Typography>
+                            </Grid>
+                            <Grid item align="center">
+                                <div className={`c100 p${userInfo.acceptancePercent} orange small ${classes.smallAcceptance}`}>
+                                    <span>{userInfo.acceptancePercent}%</span>
+                                    <div className="slice">
+                                        <div className="bar"></div>
+                                        <div className="fill"></div>
+                                    </div>
+                                </div>
+                                <Typography variant="body1">Acceptance %</Typography>
+                            </Grid>
+                            <Grid item align="center">
+                                <Typography variant="h3" className={classes.detailItemSmall}>{userInfo.longestStreak}</Typography>
+                                <Typography variant="body1">Longest Streak</Typography>
+                            </Grid>
                         </Grid>
-                    </Grid>
+                    </Box>
                 </Grid>
             </Grid>
         </Card >
