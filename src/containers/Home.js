@@ -3,8 +3,6 @@ import Grid from '@material-ui/core/Grid';
 
 import DashboardLayout from '../components/common/DashboardLayout';
 import EventItem from '../components/EventItem';
-import CreateEvent from '../components/CreateEvent';
-import CounterEvent from '../components/CounterEvent';
 import Button from '../components/common/Button';
 
 export default function Home() {
@@ -36,13 +34,6 @@ export default function Home() {
         }
     ];
 
-    const counterEvent = {
-        username: '@kdaddy',
-        titleMoney: '',
-        titleSomething: 'Uber Tomorrow',
-        content: 'Knicks Get Zion'
-    }
-
     return (
         <React.Fragment>
             <DashboardLayout>
@@ -50,9 +41,7 @@ export default function Home() {
                     <Grid item xs={12} md={10}>
                         <Button color="orange">
                             Create New
-                </Button>
-                        <CreateEvent />
-                        <CounterEvent event={counterEvent} />
+                        </Button>
                     </Grid>
                     <Grid item xs={12} md={10}>
                         {eventItems.map((eventItem, index) => {
