@@ -104,8 +104,18 @@ const SignUp = ({ history }) => {
                             color="orange"
                         >
                             Sign Up
-                            </Button>
+                        </Button>
                     </Grid>
+                    {/*
+                     <Grid item xs={12}>
+                        <Button type="button" color="blue">
+                            Signup with Facebook
+                        </Button>
+                    </Grid> 
+                    */}
+                    <button type="button" class="loginBtn loginBtn--facebook">
+                        Signup with Facebook
+                    </button>
                     <Grid item xs={12}>
                         <Grid container>
                             <Grid item xs={12} className="link_signup">

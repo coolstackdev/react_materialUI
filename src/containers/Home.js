@@ -31,6 +31,16 @@ export default function Home() {
                 { value: 'I Won', color: 'green' },
                 { value: 'I Lost', color: 'red' },
             ]
+        },
+        {
+            users: [
+                'userId1', 'userId2'
+            ],
+            title: "Uber tomorrow",
+            content: "Knicks get Zion",
+            buttons: [
+                { value: 'You Won', color: 'green' },
+            ]
         }
     ];
 
