@@ -47,7 +47,8 @@ const useStyles = makeStyles(theme => ({
         height: 100,
     },
     msg: {
-        marginTop: 40,
+        fontSize: '1.3rem',
+        marginTop: '3rem',
     }
 }));
 
@@ -57,7 +58,7 @@ const StatusItem = ({ item }) => {
     return (
         <Card className={classes.card}>
             <Box className={item.status === 'win' ? classes.badgeWin : classes.badgeLoss}>
-                <Typography className={classes.badgeStatus} variant="h5">
+                <Typography className={classes.badgeStatus} variant="h6">
                     {item.status === 'win' ? 'WIN' : 'LOSS'}
                 </Typography>
             </Box>
@@ -70,7 +71,7 @@ const StatusItem = ({ item }) => {
                     <Avatar alt='avatar' src={process.env.PUBLIC_URL + item.avatar} className={classes.avatar} />
                 </Grid>
                 <Grid item xs={12} md={8}>
-                    <Typography className={classes.msg} variant="h5">{item.msg}</Typography>
+                    <p className={classes.msg}>{item.msg}</p>
                 </Grid>
             </Grid>
         </Card>

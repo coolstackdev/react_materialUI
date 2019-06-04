@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 
 import Header from '../Header';
 import Sidebar from '../Sidebar';
@@ -26,18 +27,30 @@ const useStyles = makeStyles(theme => ({
 export default function DashboardLayout({ children }) {
     const classes = useStyles();
 
+    // get status from localstorage
+    const sidebarStatus = localStorage.getItem('sidebarStatus');
+    const notificationStatus = localStorage.getItem('notificationStatus');
+
     // state
-    const [openSidebar, setOpenSidebar] = React.useState(true);
-    const [openNotification, setOpenNotification] = React.useState(false);
+    const [openSidebar, setOpenSidebar] = React.useState(sidebarStatus === 'true');
+    const [openNotification, setOpenNotification] = React.useState(notificationStatus === 'true');
 
     // event handler
     const handleSidebarToggle = () => {
-        setOpenSidebar(!openSidebar);
+        // save value to localstorage
+        localStorage.setItem('sidebarStatus', !openSidebar);
 
+        // set State value
+        setOpenSidebar(!openSidebar);
     };
     const handleNotificationToggle = () => {
+        // save value to localstorage
+        localStorage.setItem('notificationStatus', !openNotification);
+
+        // set State value
         setOpenNotification(!openNotification);
     };
+
     const handleSearchChange = (event) => {
         console.log('search: ', event.target.value);
     };
@@ -64,7 +77,12 @@ export default function DashboardLayout({ children }) {
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
-                    {children}
+                    <Grid container direction="row">
+                        <Grid item xs={2}></Grid>
+                        <Grid item xs={10}>
+                            {children}
+                        </Grid>
+                    </Grid>
                 </Container>
             </main>
         </div>

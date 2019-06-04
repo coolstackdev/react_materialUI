@@ -90,14 +90,14 @@ const SignIn = ({ history }) => {
                     </Grid>
                     <Grid item xs={12}>
                         <Grid container>
-                            <Grid item xs={12} sm={6} className="link_forgot">
+                            <Grid item xs={6} className="link_forgot">
                                 <Link to="#">
                                     Forgot password?
                                 </Link>
                             </Grid>
-                            <Grid item xs={12} sm={6} className="link_signup">
+                            <Grid item xs={6} className="link_signup">
                                 <Link to="/signup">
-                                    Don't have an account? Sign Up
+                                    Sign Up
                                 </Link>
                             </Grid>
                         </Grid>

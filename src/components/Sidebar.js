@@ -31,7 +31,6 @@ const useStyles = makeStyles(theme => ({
         ...theme.mixins.toolbar,
     },
     drawerPaper: {
-        position: 'relative',
         whiteSpace: 'nowrap',
         width: drawerWidth,
         transition: theme.transitions.create('width', {
@@ -79,6 +78,7 @@ export default function Sidebar({ openSidebar }) {
     return (
         <Drawer
             variant="permanent"
+            anchor="left"
             classes={{
                 paper: clsx(classes.drawerPaper, !openSidebar && classes.drawerPaperClose),
             }}

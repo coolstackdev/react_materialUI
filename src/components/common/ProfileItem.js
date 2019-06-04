@@ -59,11 +59,19 @@ const ProfileItem = ({ userInfo }) => {
                 direction="row"
                 align="center"
             >
-                <Grid item xs={2} md={4}></Grid>
-                <Grid item xs={8} md={4} className={classes.avatarItem}>
-                    <Avatar alt='avatar' src={process.env.PUBLIC_URL + userInfo.avatar} className={classes.avatar} />
-                    <Typography variant="h5" className={classes.name}>{userInfo.name}</Typography>
-                    <Button color="blue" style={{ width: '50%', margin: 10 }}>Rookie</Button>
+                <Grid item md={4}></Grid>
+                <Grid item xs={12} md={4} className={classes.avatarItem}>
+                    <Grid container>
+                        <Grid item xs={12}>
+                            <Avatar alt='avatar' src={process.env.PUBLIC_URL + userInfo.avatar} className={classes.avatar} />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Typography variant="h5" className={classes.name}>{userInfo.name}</Typography>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Button color="blue" style={{ width: '50%', margin: 10 }}>Rookie</Button>
+                        </Grid>
+                    </Grid>
                 </Grid>
                 {!userInfo.isMe ?
                     <Grid item xs={12} md={4}>

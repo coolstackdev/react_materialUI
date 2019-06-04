@@ -25,8 +25,8 @@ const useStyles = makeStyles({
     },
     avatar: {
         margin: 10,
-        width: 100,
-        height: 100,
+        width: '5rem',
+        height: '5rem',
     },
     userName1: {
         marginRight: 20,
@@ -90,13 +90,13 @@ export default function EventItem({ users, title, content, buttons, handleCounte
                             <Grid item xs={1}>
                                 <FlagIcon color="primary" className={classes.iconButton} onClick={handleReportOpen} />
                             </Grid>
-                            <Grid item xs={4} align="right">
+                            <Grid item xs={5} sm={4} align="right">
                                 <Grid>
                                     <Avatar alt={userInfo[0].name} src={process.env.PUBLIC_URL + userInfo[0].url} className={classes.avatar} />
                                     <Typography className={classes.userName1} variant="body1">{userInfo[0].name}</Typography>
                                 </Grid>
                             </Grid>
-                            <Grid item xs={2}>
+                            <Grid item xs={1} sm={2}>
                                 <h3 className={classes.vs}>VS</h3>
                             </Grid>
                             <Grid item xs={4} align="left">
