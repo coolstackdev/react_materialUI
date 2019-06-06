@@ -9,13 +9,19 @@ body {
     width: 200px;
 }
 .login_input {
+    width: 100%;
     color: black;
     border-radius: 5px;
     overflow: hidden;
 
     .MuiInputBase-root {
+        height: 50px;
         background-color: white;
         overflow: hidden;
+
+        .MuiInputBase-input {
+          padding-left: 10px;
+        }
     }
 }
 .link_forgot {
@@ -81,3 +87,62 @@ body {
   background-color: #5B7BD5;
   background-image: linear-gradient(#5B7BD5, #4864B1);
 }
+
+
+/* image upload style */
+.previewComponent {
+    width: 15rem;
+    height: 15rem;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.previewText {
+  text-align: center;
+  vertical-align: middle;
+  background: white;
+  color: #ccc;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+}
+
+.previewText p.text_empty {
+  margin: 0 !important;
+  font-size: 2rem;
+  padding-top: 100px;
+}
+
+
+#upload-photo {
+    width: 80%;
+    border-radius: 50%;
+    height: 100%;
+    background: rgba(150,225,150,0.5);
+    vertical-align: middle;
+    text-align: center;
+    padding: 0 10%;
+    margin-top: -270px;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 15rem;
+    opacity: 0;
+}
+
+/* signup bottom step style */
+.stepContainer {
+  padding-top: 20px;
+
+  .step {
+    width: 50% !important;
+    padding: 0 10px !important;
+    height: 10px;
+    background: white;
+    border-radius: 5px;
+    &.active {
+      background: #3587ce;
+    }
+  }
+}
+
